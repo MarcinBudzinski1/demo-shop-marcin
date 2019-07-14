@@ -3,6 +3,7 @@ package com.example.demoshopmarcin.users;
 
 import com.example.demoshopmarcin.BaseEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -14,8 +15,8 @@ import java.util.Set;
 @Setter
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor
 public class User extends BaseEntity {
-
 
     private String username;
     @Column(unique = true)
