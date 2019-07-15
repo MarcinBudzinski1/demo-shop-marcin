@@ -16,6 +16,7 @@ import java.util.Set;
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor
+@DiscriminatorColumn(name = "userType", discriminatorType = DiscriminatorType.STRING)
 public class User extends BaseEntity {
 
     private String username;
