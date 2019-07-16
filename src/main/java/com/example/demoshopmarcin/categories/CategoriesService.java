@@ -1,9 +1,12 @@
 package com.example.demoshopmarcin.categories;
 
-public abstract class CategoriesService {
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class CategoriesService {
 
     private CategoryRepository categoryRepository;
 
+    @Autowired
     protected CategoriesService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
