@@ -16,14 +16,15 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "system_type", discriminatorType = DiscriminatorType.STRING)
-public class Product extends BaseEntity {
+class Product extends BaseEntity {
 
-    private Company company;
+    private Company companyName;
     private String ProductName;
     private BigDecimal price;
     private String url;
     private String description;
     @ManyToOne
     private Category category;
+    private Integer stockAmount;
 
 }
