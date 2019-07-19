@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class UserData {
+public class UserAddress {
 
     public String street;
     public String building;

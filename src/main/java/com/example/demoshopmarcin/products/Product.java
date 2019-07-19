@@ -12,11 +12,12 @@ import java.math.BigDecimal;
 
 @Setter
 @Getter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "system_type", discriminatorType = DiscriminatorType.STRING)
-class Product extends BaseEntity {
+public class Product extends BaseEntity {
 
     private Company companyName;
     private String ProductName;
