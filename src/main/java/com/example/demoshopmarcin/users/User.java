@@ -28,7 +28,7 @@ public class User extends BaseEntity {
     @Cascade(value = CascadeType.ALL)
     @JoinTable(name = "user_role")
     private Set<Role> roles;
-    private String status;
+    private Status status;
     private UserAddress userAddress;
 
 

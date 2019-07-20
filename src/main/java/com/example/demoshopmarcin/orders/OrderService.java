@@ -34,7 +34,7 @@ public class OrderService {
 
         cart.getOrderLineList()
                 .stream()
-                .peek(p->p.getProduct().setStockAmount(p.getProduct().getStockAmount() - p.setQuantity()))
+                .peek(p->p.getProduct().setStockAmount(p.getProduct().getStockAmount() - p.getQuantity()))
                 .map(OrderLine::getProduct).forEach(productRepository::save);
 
         Order order = ordersRepository.save(new Order(

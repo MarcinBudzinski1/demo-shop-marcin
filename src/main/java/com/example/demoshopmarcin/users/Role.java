@@ -15,5 +15,5 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Role extends BaseEntity {
 
-    private String role;
+    private String roleName;
 }
