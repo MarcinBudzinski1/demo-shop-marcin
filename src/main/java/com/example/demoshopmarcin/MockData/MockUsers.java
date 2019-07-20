@@ -76,9 +76,7 @@ public class MockUsers {
         int[] second = new int[2];
         for (int i=0;i<first.length;i++){first[i] = randomGenerator.nextInt(9);}
         for (int i=0;i<second.length;i++){second[i] = randomGenerator.nextInt(9);}
-        StringBuilder createZipCode = new StringBuilder();
-        createZipCode.append(Arrays.toString(first)).append("-").append(Arrays.toString(second));
-        return createZipCode.toString();
+        return Arrays.toString(first) + "-" + Arrays.toString(second);
     }
 
     private String createRandomFlat() {

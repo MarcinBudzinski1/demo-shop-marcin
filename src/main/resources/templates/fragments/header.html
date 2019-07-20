@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <div th:fragment="header-css">
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                overflow: hidden;
-                background-color: #992600;
-                position: fixed;
-                top: 0;
-                width: 100%;
-            }
-
-            .topnav a {
-                float: left;
-                color: #1a0600;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-            .topnav a:hover {
-                background-color: #ddd;
-                color: black;
-            }
-
-            .topnav a.active {
-                background-color: #4d1300;
-                color: white;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/main.css">
     </div>
     <title></title>
 </head>
-<body>
-<div class="topnav">
-    <a class="active" href="#home">
-        <picture>
-            <img src="/resources/images/company-logo.jpg" alt="demo by Marcin Budziński">
-        </picture>
-    </a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-</div>
+<body style="height:1500px">
+<main>
+    <div th:fragment="header">
+        <nav class="navbar fixed-top navbar-light bg-light">
+            <a class="navbar-brand">
+                <picture>
+                    <img src="/images/company-logo.jpg" alt="demo by Marcin Budziński">
+                </picture>
+            </a>
+            <a class="navbar-brand">Navbar</a>
+            <a class="navbar-brand">Navbar</a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Login
+            </button>
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Logowanie</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group" th:action="@{/login-process}" th:method="post">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="PasswordHash">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Zaloguj się</button>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</main>
 </body>
 </html>

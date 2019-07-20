@@ -8,7 +8,7 @@ import javax.validation.constraints.Pattern;
 
 @Setter
 @Getter
-public class UserDataDTO {
+public class UserAddressDTO {
     @NotBlank(message = "Pole musi zostać wypełnione")
     public String street;
     @NotBlank(message = "Pole musi zostać wypełnione")

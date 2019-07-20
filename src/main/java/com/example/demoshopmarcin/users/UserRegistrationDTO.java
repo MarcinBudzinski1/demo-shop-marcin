@@ -1,7 +1,12 @@
 package com.example.demoshopmarcin.users;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.Pattern;
 
+@Setter
+@Getter
 public class UserRegistrationDTO {
 
     @Pattern(regexp = "^[\\p{Lu}][\\p{Ll}]{2,}$", message = "Wymagane przynajmniej 3 znaki(pierwsza litera duża, reszta małe).")
