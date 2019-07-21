@@ -19,8 +19,7 @@ public abstract class CategoriesService {
 
     public List<CategoryDTO> getCategories() {
         List<Category> categoryList = categoryRepository.getCategories();
-        return categoryList.stream()
-                .map(this::buildCategoryDTO).collect(Collectors.toList());
+        return categoryList.stream().map(this::buildCategoryDTO).collect(Collectors.toList());
     }
 
     public Optional<Category> getCategoryById(Long movedId) {
@@ -32,7 +31,6 @@ public abstract class CategoriesService {
         movedCategory.setParentId(Long.valueOf(newParentId));
         categoryRepository.updateCategory(movedCategory);
     }
-
 
     protected CategoryDTO buildCategoryDTO(Category c) {
         CategoryDTO categoryDTO = new CategoryDTO();

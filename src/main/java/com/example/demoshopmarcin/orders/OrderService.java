@@ -30,7 +30,7 @@ public class OrderService {
     public Order placeOrder(){
         Cart cart = userContextService.getCart();
         String loggedUserEmail =userContextService.loggedUserEmail();
-        Customer customer = userRepository.findByUsername((loggedUserEmail));
+        Customer customer = userRepository.finfByUsername(loggedUserEmail).get();
 
         cart.getOrderLineList()
                 .stream()
