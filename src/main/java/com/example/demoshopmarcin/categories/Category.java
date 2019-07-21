@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity
 @Builder
+@AllArgsConstructor
 public class Category extends BaseEntity {
 
     private String categoryName;

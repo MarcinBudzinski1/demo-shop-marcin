@@ -12,10 +12,10 @@ public class ProductToProductToDtoBuilder {
 
     private CategoryRepository categoryRepository;
     private CompanyRepository companyRepository;
-    private ProductRepository productRepository;
+    private ProductRepository<Product> productRepository;
 
     @Autowired
-    public ProductToProductToDtoBuilder(CategoryRepository categoryRepository, CompanyRepository companyRepository, ProductRepository productRepository) {
+    public ProductToProductToDtoBuilder(CategoryRepository categoryRepository, CompanyRepository companyRepository, ProductRepository<Product> productRepository) {
         this.categoryRepository = categoryRepository;
         this.companyRepository = companyRepository;
         this.productRepository = productRepository;

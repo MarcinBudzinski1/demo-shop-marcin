@@ -16,7 +16,7 @@ public class CartController {
     private UserContextService userContextService;
 
     @Autowired
-    public CartController(ProductRepository productRepository, UserContextService userContextService) {
+    public CartController(ProductRepository<Product> productRepository, UserContextService userContextService) {
         this.productRepository = productRepository;
         this.userContextService = userContextService;
     }

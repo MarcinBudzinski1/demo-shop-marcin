@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 @DiscriminatorColumn(name = "system_type", discriminatorType = DiscriminatorType.STRING)
 public class Product extends BaseEntity {
 
+    @ManyToOne
     private Company companyName;
     private String ProductName;
     private BigDecimal price;

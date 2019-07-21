@@ -21,8 +21,9 @@ public class Order extends BaseEntity implements Serializable {
 
     private String customerName;
     private BigDecimal totalCost;
+    @Embedded
     private UserAddress userAddress;
-    private UserAddress deliveryAddress;
+//    private UserAddress deliveryAddress;
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderLine> orderLines;
     @ManyToOne

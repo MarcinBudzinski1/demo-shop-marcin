@@ -23,7 +23,7 @@ public class UserRegistrationService {
 
     public void registerUser(UserRegistrationDTO userRegistrationDTO ){
         Customer user =UserRegistrationDTOBuilder.createCustomer(userRegistrationDTO, passwordEncoder);
-        if (userRepository.findByUsername(user.getUsername())) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new UserExistsException("User with username " + user.getUsername() + "already exists in database");
         } else {
             addUser(user);

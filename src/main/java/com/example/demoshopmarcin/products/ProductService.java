@@ -9,12 +9,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    private ProductRepository productRepository;
+    private ProductRepository<Product> productRepository;
     private ProductToProductToDtoBuilder productToProductToDtoBuilder;
     private CategoriesService categoriesService;
 
     @Autowired
-    public ProductService(ProductRepository productRepository, ProductToProductToDtoBuilder productToProductToDtoBuilder, CategoriesService categoriesService) {
+    public ProductService(ProductRepository<Product> productRepository, ProductToProductToDtoBuilder productToProductToDtoBuilder, CategoriesService categoriesService) {
         this.productRepository = productRepository;
         this.productToProductToDtoBuilder = productToProductToDtoBuilder;
         this.categoriesService = categoriesService;
