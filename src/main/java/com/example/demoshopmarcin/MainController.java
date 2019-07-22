@@ -1,5 +1,6 @@
 package com.example.demoshopmarcin;
 
+import com.example.demoshopmarcin.users.UserExistsException;
 import com.example.demoshopmarcin.users.UserRegistrationDTO;
 import com.example.demoshopmarcin.users.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,27 +24,46 @@ public class MainController {
     }
 
     @GetMapping(value = "/")
-    public String home(Model model){
+    public String home(Model model) {
         model.addAttribute("userData", new UserRegistrationDTO());
-        return"index";
+        return "index";
     }
 
     @PostMapping(value = "/")
-    public String registerUser(@ModelAttribute(name = "userData") @Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){return "register";}
-        return "registerDone";
+    public String registerUserMainPage(@ModelAttribute(name = "userData") @Valid UserRegistrationDTO userData, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
+        try {
+            userRegistrationService.registerUser(userData);
+        } catch (UserExistsException e) {
+            model.addAttribute("userExistsException", e.getMessage());
+            return "registerForm";
+        }
+        model.addAttribute("registrationData", userData);
+
+        return "registered";
     }
 
     @GetMapping(value = "/register")
-    public String registerForm(Model model){
+    public String registerForm(Model model) {
         model.addAttribute("userData", new UserRegistrationDTO());
 
         return "register";
     }
 
-   // @PostMapping(value = "/register")
-   // public String registerUser(@ModelAttribute(name = "userData") @Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult){
-   //     if (bindingResult.hasErrors()){return "register";}
-    //    return "registerDone";
+    @PostMapping(value = "/register")
+    public String registerUserFrom(@ModelAttribute(name = "userData") @Valid UserRegistrationDTO userData, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
+        try {
+            userRegistrationService.registerUser(userData);
+        } catch (UserExistsException e) {
+            model.addAttribute("userExistsException", e.getMessage());
+            return "registerForm";
+        }
+        model.addAttribute("registrationData", userData);
+        return "registered";
     }
-
+}

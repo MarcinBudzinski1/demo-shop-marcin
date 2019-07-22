@@ -7,13 +7,16 @@
 <body>
 <form th:action="@{/register}" th:object="${userData}" method="post" class="form" role="form">
     <div class="form-group">
-        <input id="registerUsername" placeholder="Username" class="form-control form-control-sm" type="text" required="">
+        <label for="registerUsername"></label>
+        <input id="registerUsername" th:field="*{username}" placeholder="Username" class="form-control form-control-sm" type="text" required="">
     </div>
     <div class="form-group">
-        <input id="registerEmail" placeholder="Email" class="form-control form-control-sm" type="text" required="">
+        <label for="registerEmail"></label>
+        <input id="registerEmail" th:field="*{eMail}" placeholder="Email" class="form-control form-control-sm" type="text" required="">
     </div>
     <div class="form-group">
-        <input id="registerPassword" placeholder="Password" class="form-control form-control-sm" type="text" required="">
+        <label for="registerPassword"></label>
+        <input id="registerPassword" th:field="*{passwordHash}" placeholder="Password" class="form-control form-control-sm" type="text" required="">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Register User</button>
